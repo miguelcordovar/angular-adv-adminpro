@@ -5,14 +5,24 @@
   <div class="col-12">
       <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Striped Progress bar </h4>
+            <h4 class="card-title">Striped Progress bar</h4>
+
             <div class="progress m-t-20">
               <div class="progress-bar bg-primary active progress-bar-striped"
-                    style="width:15%; height:10px;"
-                    [style.width]="getProgreso"
-                    role="progressbar">
+                style="height:10px;"
+                [style.width]="getProgreso1"
+                role="progressbar">
               </div>
-          </div>
+            </div>
+
+            <div class="progress m-t-20">
+              <div class="progress-bar bg-info active progress-bar-striped"
+                  style="height:10px;"
+                  [style.width]="getProgreso2"
+                  role="progressbar">
+              </div>
+            </div>
+
           </div>
       </div>
   </div>
@@ -22,23 +32,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-primary"
-              (click)="cambiarValor(-5)"
-              type="button">
-              <i class="fa fa-minus"></i>
-            </button>
-          </span>
-          <input type="text" class="form-control" placeholder="Product name">
-          <span class="input-group-btn">
-            <button class="btn btn-primary"
-              (click)="cambiarValor(5)"
-              type="button">
-              <i class="fa fa-plus"></i>
-            </button>
-          </span>
-        </div>
+        <app-incrementador (valorSalida)="progreso1 = $event" [valor]="progreso1" ></app-incrementador>
       </div>
     </div>
   </div>
@@ -46,7 +40,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        2
+        <app-incrementador [btnClass]="'btn btn-info'" (valorSalida)="progreso2 = $event" [valor]="progreso2"></app-incrementador>
       </div>
     </div>
   </div>
